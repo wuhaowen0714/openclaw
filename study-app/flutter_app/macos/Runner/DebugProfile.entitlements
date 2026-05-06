@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	  学习项目关掉 sandbox：
+	    1. bash 工具需要 Process.start，sandbox 默认禁止任意子进程
+	    2. list_dir/read_file 需要访问 ~/，sandbox 把文件访问限制在容器内
+	    3. LLM API 调用需要出站网络
+	  生产 / App Store 发布需要重新开 sandbox + 配套 entitlements。
+	-->
+	<key>com.apple.security.app-sandbox</key>
+	<false/>
+	<key>com.apple.security.cs.allow-jit</key>
+	<true/>
+	<key>com.apple.security.network.client</key>
+	<true/>
+</dict>
+</plist>
