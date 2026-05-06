@@ -205,3 +205,21 @@ Telegraph style. Root rules only. Read scoped `AGENTS.md` before subtree work.
 - Connection/provider additions: update all UI surfaces + docs + status/config forms.
 - Provider tool schemas: prefer flat string enum helpers over `Type.Union([Type.Literal(...)])`; some providers reject `anyOf`. Not a repo-wide protocol/schema ban.
 - External messaging: no token-delta channel messages. Follow `docs/concepts/streaming.md`; preview/block streaming uses edits/chunks and preserves final/fallback delivery.
+
+## Skill routing
+
+When the user's request matches an available skill, invoke it via the Skill tool. When in doubt, invoke the skill.
+
+Key routing rules:
+- Product ideas/brainstorming → invoke /office-hours
+- Strategy/scope → invoke /plan-ceo-review
+- Architecture → invoke /plan-eng-review
+- Design system/plan review → invoke /design-consultation or /plan-design-review
+- Full review pipeline → invoke /autoplan
+- Bugs/errors → invoke /investigate
+- QA/testing site behavior → invoke /qa or /qa-only
+- Code review/diff check → invoke /review
+- Visual polish → invoke /design-review
+- Ship/deploy/PR → invoke /ship or /land-and-deploy
+- Save progress → invoke /context-save
+- Resume context → invoke /context-restore
