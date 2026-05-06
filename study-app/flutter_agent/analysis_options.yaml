@@ -1,0 +1,6 @@
+linter:
+  rules:
+    - prefer_single_quotes
+    - avoid_empty_else
+    - prefer_final_fields
+    - prefer_final_locals
